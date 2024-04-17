@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import NavBar from './MyNavBar2';
 import { Link } from 'react-router-dom';
-import '../styles/Login.css';
-import './WatchPhoto.css';
+import '../styles/WatchPhoto.css';
 
 function groupByAlbum(array) {
     return array.reduce((acc, current) => {

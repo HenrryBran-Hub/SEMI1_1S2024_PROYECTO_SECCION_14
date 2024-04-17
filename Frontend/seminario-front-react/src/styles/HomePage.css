@@ -1,10 +1,10 @@
-.container {
+.container-homepage {
     margin-top: 25px;
     text-align: center;
     width: 100%;
 }
 
-.titulo {
+.titulo-homepage {
     font-family: 'Arial', sans-serif; 
     font-size: 50px; 
     font-weight: bold; 
@@ -15,12 +15,33 @@
     margin-bottom: 20px; 
   }
 
-.titulo:hover {
+.titulo-homepage:hover {
     color: #e58908;
     cursor: pointer;
   }
 
-.container-img{
-    width: 60%;
-    align-items: center;
+.container-img-homepage{
+  width: 451px;
+  position: absolute; /* Otra opción es `relative` dependiendo del flujo de diseño deseado */
+  right: 50px;
+}
+
+.container-label-homepage{
+  color: blue;
+  font-size: 16px;
+  font-family:sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  position: absolute;
+  width: 50%;
+  top: 300px;
+
+}
+
+.container-horizontal-homepage{
+  display: flex;
+  width: auto;
 }

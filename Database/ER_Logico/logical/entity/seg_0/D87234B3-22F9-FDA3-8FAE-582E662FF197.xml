@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D87234B3-22F9-FDA3-8FAE-582E662FF197" name="Comentario">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 20:27:49 UTC</createdTime>
+<ownerDesignName>ER_Logico</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idComentario" id="A2B32DEC-4A61-1FAE-53C0-37F3AA8330FB">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 20:27:56 UTC</createdTime>
+<ownerDesignName>ER_Logico</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="descripcion" id="FD128E18-6F58-E554-F6F3-BCA10DF3D998">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 20:28:19 UTC</createdTime>
+<ownerDesignName>ER_Logico</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="calificacion" id="B7ADB0CF-08E9-20C0-7B29-5E5B3C74F3A2">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 20:28:59 UTC</createdTime>
+<ownerDesignName>ER_Logico</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6260425D-6034-83E2-C1BB-BBF66CBBEDFD" name="Comentario PK">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 20:28:14 UTC</createdTime>
+<ownerDesignName>ER_Logico</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A2B32DEC-4A61-1FAE-53C0-37F3AA8330FB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

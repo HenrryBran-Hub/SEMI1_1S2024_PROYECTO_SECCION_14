@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NavBar from './MyNavBar2';
 import '../styles/Signup.css';
-import './LoadPhoto.css'
+import '../styles/LoadPhoto.css'
 
 const LoadPhoto = ({ userData, albumData }) => {
     const usuarioperfil = userData ? userData.nombre_usuario : '';

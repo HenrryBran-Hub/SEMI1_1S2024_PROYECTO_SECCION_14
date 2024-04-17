@@ -70,7 +70,7 @@ const EditPerfil = ({ userData }) => {
             <div className="containereditperfil">
                 <div className="cuadradoeditperfil">
                     <div className="contornoeditperfil">
-                        <h1 className='titulo'>Edicion de Perfil</h1>
+                        <h1 className='tituloEditPerfil'>Edicion de Perfil</h1>
                         <img className='container-imgeditperfil' src={imagenperfil} alt="Descripción de la imagen" />
 
                         <div className="form-group">

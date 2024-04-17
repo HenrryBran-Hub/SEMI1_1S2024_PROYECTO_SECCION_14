@@ -16,9 +16,9 @@ const MyNavbar2 = () => {
       <div className="navbar2">
         <NavLink to="/userpage" className="nav-button2">Inicio</NavLink>
         <NavLink to="/editperfil" className="nav-button2">Editar Perfil</NavLink>
-        <NavLink to="/watchphoto" className="nav-button2">Ver fotos</NavLink>  
-        <NavLink to="/loadphoto" className="nav-button2">Subir fotos</NavLink>
-        <NavLink to="/editalbum" className="nav-button2">Editar album</NavLink>
+        <NavLink to="/createdocument" className="nav-button2">Creacion</NavLink>  
+        <NavLink to="/editdocument" className="nav-button2">Edicion</NavLink>
+        <NavLink to="/deldocument" className="nav-button2">Eliminacion</NavLink>        
         <NavLink to="/" className="nav-button2" onClick={handleLogout}>Cerrar sesión</NavLink>
       </div>
   );

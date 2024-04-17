@@ -7,11 +7,10 @@ import Signup from './components/Signup';
 import Login from "./components/Login";
 import UserPage from "./components/UserPage";
 import EditPerfil from "./components/EditPerfil";
-import LoadPhoto from "./components/LoadPhoto";
-import WatchPhoto from "./components/WatchPhoto";
-import EditAlbum from "./components/EditAlbum";
+import CreateDocument from "./components/CreateDocument";
+import EditDocument from "./components/EditDocument";
+import DelDocument from "./components/DelDocument";
 import PrivateRoute from './auth/PrivateRoute';
-import PhotoDescription from './components/PhotoDescription';
 import './App.css';
 import ChatbotPopup from './components/Chatbot';
 
@@ -107,10 +106,9 @@ function App() {
           {/* Rutas protegidas */}
           <Route path='/userpage' element={<PrivateRoute><UserPage userData={userData} userDescripcion={descripcionUser} /></PrivateRoute>} />
           <Route path='/editperfil' element={<PrivateRoute><EditPerfil userData={userData} /></PrivateRoute>} />
-          <Route path='/loadphoto' element={<PrivateRoute><LoadPhoto userData={userData} albumData={albumData} /></PrivateRoute>} />
-          <Route path='/watchphoto' element={<PrivateRoute><WatchPhoto userFoto={albumDataFoto} /></PrivateRoute>} />
-          <Route path='/editalbum' element={<PrivateRoute><EditAlbum userData={userData} albumData={albumData} /></PrivateRoute>} />
-          <Route path='/photo_descripcion/:id' element={<PrivateRoute><PhotoDescription userData={userData} /></PrivateRoute>} />
+          <Route path='/createdocument' element={<PrivateRoute><CreateDocument userData={userData} albumData={albumData} /></PrivateRoute>} />
+          <Route path='/editdocument' element={<PrivateRoute><EditDocument userFoto={albumDataFoto} /></PrivateRoute>} />
+          <Route path='/deldocument' element={<PrivateRoute><DelDocument userData={userData} albumData={albumData} /></PrivateRoute>} />
         </Routes>
       </BrowserRouter>
       <ChatbotPopup />

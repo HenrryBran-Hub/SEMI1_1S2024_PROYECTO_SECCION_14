@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Webcam from 'react-webcam';
 import NavBar from './MyNavBar';
-import imagen from '../img/fauna.png'; // Importa la imagen
+import imagen from '../img/user_signup.png'; // Importa la imagen
 import '../styles/Login.css';
 import md5 from 'md5';
 

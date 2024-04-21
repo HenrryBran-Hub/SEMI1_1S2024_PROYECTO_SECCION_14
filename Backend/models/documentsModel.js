@@ -1,21 +1,22 @@
 const db = require('../database/connection');
 
 // Función para registrar un nuevo usuario
-exports.createUser = async (nombre_usuario, nombre_completo, contrasena, foto_perfil) => {
+exports.createDocument = async (titulo, descripcion,  urlfoto, fecha, etiqueta1, etiqueta2, etiqueta3, estado, idusuario) => {
     try {
-        const [results, fields] = await db.execute('INSERT INTO usuario (nombreusuario, nombrecompleto, contrasena, fotoperfil) VALUES (?, ?, ?, ?)', [nombre_usuario, nombre_completo, contrasena, foto_perfil]);
+        const [results, fields] = await db.execute('INSERT INTO documento (titulo, descripcion, urlfoto, fecha, etiqueta1, etiqueta2, etiqueta3, estado, idusuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [titulo, descripcion, urlfoto, fecha, etiqueta1, etiqueta2, etiqueta3, estado, idusuario]);
         if (results.affectedRows === 1) {
             // Si se insertó correctamente, retornar un estado 200
-            return { status: 200, message: 'El usuario se guardó correctamente.', id: results.insertId };
+            return { status: 200, message: 'El documento se guardó correctamente.', id: results.insertId };
         } else {
             // Si no se insertó correctamente, retornar un estado 500 con un mensaje de error
-            return { status: 500, message: 'Hubo un problema al guardar la informacion de usuario.' };
+            return { status: 500, message: 'Hubo un problema al guardar la informacion de documento.' };
         }
     } catch (error) {
         throw error;
     }
 };
 
+/*
 // Función para verificar si un nombre de usuario ya está registrado
 exports.checkUsernameExists = async (nombre_usuario) => {
     try {
@@ -127,3 +128,5 @@ exports.getUserGeneral = async() => {
         throw error;
     }
 }
+
+*/

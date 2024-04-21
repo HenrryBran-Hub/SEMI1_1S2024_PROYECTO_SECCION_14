@@ -1,10 +1,81 @@
-const userModel = require('../models/userModel');
+const documentModel = require('../models/documentsModel');
 const { verify } = require('jsonwebtoken');
 const path = require('path');
 const { uploadFileToS3 } = require('../s3Upload/uploadFileToS3');
+const axios = require('axios');
+
+exports.savedocuments = async (req, res) => {
+    try {
+
+        const titulo = req.body.titulo;
+        const descripcion = req.body.descripcion;
+        const estado = req.body.estado;
+        const foto_perfil = req.file && req.file.filename ? path.join(__dirname, '../images/' + req.file.filename) : null;
+        const token = req.body.token;
+        const decodedToken = verify(token, process.env.JWT_KEY_SECRET_TOKEN);
+        const id = decodedToken.id;
+
+        const imageBase64 = req.body.imagen_base64;
+
+        // Obtener la fecha y hora actual
+        const fechaHoraActual = new Date();
+
+        // Formatear la fecha y hora según tus necesidades
+        const formatoFechaHora = `${fechaHoraActual.getFullYear()}-${fechaHoraActual.getMonth() + 1
+            }-${fechaHoraActual.getDate()} ${fechaHoraActual.getHours()}:${fechaHoraActual.getMinutes()}:${fechaHoraActual.getSeconds()}`;
+
+        const fotoPerfilUrl = await uploadFileToS3(foto_perfil, 'Fotos_documentos/');
+        if (!fotoPerfilUrl) {
+            res.status(500).json({ message: "Error al cargar la foto de perfil a S3" });
+            throw new Error('Error al cargar la foto de perfil a S3');
+        }
+
+        const response = await axios.post('https://3v0stofaj0.execute-api.us-east-1.amazonaws.com/ProyectoSemiG14API/etiquetas', {
+            imagen: imageBase64
+        });
+
+        const { etiqueta1, etiqueta2, etiqueta3 } = JSON.parse(response.data.body);
 
 
-exports.editProfile = async (req, res) => {
+        // Registrar el nuevo usuario
+        const userId = await documentModel.createDocument(titulo, descripcion, fotoPerfilUrl.Location, formatoFechaHora, etiqueta1, etiqueta2, etiqueta3, estado, id);
+        if (userId.status === 200) {
+            console.log('estado del documento:', userId.message);
+        } else {
+            console.error('Hubo un problema al el documento con la foto:', userId.message);
+            res.status(500).json({ message: "Error interno del servido en el registro" });
+        }
+
+        return res.status(200).json({ message: 'Exito al ingresar los datos de documento registrado' });
+
+
+    } catch (error) {
+        console.error("Error al registrar documento:", error);
+        res.status(500).json({ message: "Error interno del servidor en el registro" });
+    }
+};
+
+
+exports.extraer = async (req, res) => {
+    try {
+
+        const imageBase64 = req.body.base64Image;
+        const response = await axios.post('https://3v0stofaj0.execute-api.us-east-1.amazonaws.com/ProyectoSemiG14API/extraer', {
+            imagen: imageBase64
+        });
+
+        const { texto_detectado } = JSON.parse(response.data.body);
+        return res.status(200).json({ message: texto_detectado });
+
+
+    } catch (error) {
+        console.error("Error al registrar documento:", error);
+        res.status(500).json({ message: "Error interno del servidor en el registro" });
+    }
+};
+
+/*
+exports.editdocuments = async (req, res) => {
 
     try {
         const nombre_usuario = req.body.nombre_usuario;
@@ -21,7 +92,7 @@ exports.editProfile = async (req, res) => {
         if (!user) {
             return res.status(500).json({ message: "Credenciales inválidas" });
         }
-        
+
         // Compara las contraseñas
         if (compareMD5Values(contrasena, user.contrasena)) {
             // Verificamos si cambió la imagen 
@@ -77,7 +148,7 @@ exports.editProfile = async (req, res) => {
 
 
 //Funcion para obtener los datos del perfil
-exports.getPerfil = async (req, res) => {
+exports.getdocuments = async (req, res) => {
     // Obtener el ID del parámetro de consulta
     const token = req.query.id;
     const decodedToken = verify(token, process.env.JWT_KEY_SECRET_TOKEN);
@@ -94,9 +165,6 @@ exports.getPerfil = async (req, res) => {
         console.error("Error al tomar los datos de usuario:", error);
         res.status(500).json({ status: 500, message: "Error interno del servidor" });
     }
-    
-};
 
-function compareMD5Values(hashValue1, hashValue2) {
-    return hashValue1 === hashValue2;
-}
+};
+*/

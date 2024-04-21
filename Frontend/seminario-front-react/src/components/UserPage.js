@@ -4,9 +4,9 @@ import '../styles/UserPage.css';
 
 const UserPage = ({ userData }) => {
     // Verificar si userData está definido y obtener los valores correspondientes
-    const usuario = userData ? userData.nombre_usuario : '';
-    const nombreCompleto = userData ? userData.nombre_completo : '';
-    const imagen = userData ? userData.foto_perfil : '';
+    const usuario = userData ? userData.nombreusuario : '';
+    const nombreCompleto = userData ? userData.nombrecompleto : '';
+    const imagen = userData ? userData.fotoperfil : '';
 
     return (
         <div>

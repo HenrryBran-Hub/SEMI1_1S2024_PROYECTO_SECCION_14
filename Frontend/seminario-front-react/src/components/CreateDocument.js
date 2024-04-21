@@ -6,23 +6,27 @@ const CreateDocument = () => {
 
     const [imagen, setImagen] = useState(null);
     const [imagenObject, setImagenObject] = useState(null);
+    const [imagenObject2, setImagenObject2] = useState(null);
     const [showExtraer, setExtraer] = useState(false);
     const [imagenextrare, setImagenExtraer] = useState(null);
+    const [titulo, setTitulo] = useState("");
+    const [descripcion, setDescripcion] = useState("");
+    const [estado, setEstado] = useState(0); // 0 para privado, 1 para público
+    const [extraccion, setExtraccion] = useState(""); 
 
     const handleImagenChange = (event) => {
         const imagenSeleccionada = event.target.files[0];
         setImagenObject(event.target.files[0]);
         if (imagenSeleccionada) {
-            setImagenExtraer(URL.createObjectURL(imagenSeleccionada));
-
+            setImagen(URL.createObjectURL(imagenSeleccionada));
         }
     };
 
     const handleImagenChangeupdate = (event) => {
         const imagenSeleccionada = event.target.files[0];
-        setImagenObject(event.target.files[0]);
+        setImagenObject2(event.target.files[0]);
         if (imagenSeleccionada) {
-            setImagen(URL.createObjectURL(imagenSeleccionada));
+            setImagenExtraer(URL.createObjectURL(imagenSeleccionada));
         }
     };
 
@@ -34,9 +38,7 @@ const CreateDocument = () => {
         setExtraer(false);
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
+    const handleSubmit = async () => {
         if (!imagenObject) {
             alert('Por favor, seleccione una imagen');
             return;
@@ -44,7 +46,7 @@ const CreateDocument = () => {
 
         const reader = new FileReader();
         reader.onloadend = () => {
-            const base64String = reader.result.split(',')[1]; // Get base64 string
+            const base64String = reader.result.split(',')[1]; // Obtener cadena base64
             sendDataToServer(base64String);
         };
         reader.readAsDataURL(imagenObject);
@@ -53,10 +55,71 @@ const CreateDocument = () => {
     const sendDataToServer = async (base64String) => {
 
         const formData = new FormData();
-        formData.append('base64Image', base64String);
+        formData.append('titulo', titulo);
+        formData.append('descripcion', descripcion);
+        formData.append('estado', estado); // Enviar el estado seleccionado
+        formData.append('foto_perfil', imagenObject);
+        const Token = localStorage.getItem("token")
+        formData.append('token', Token);
+        formData.append('imagen_base64', base64String);
 
         try {
-            const response = await fetch('http://localhost:5000/signup/descriptiongeneral', {
+            const response = await fetch('http://localhost:5000/documents/savedocument', {
+                method: 'POST',
+                body: formData,
+            });
+            if (response.status === 200) {
+                // Redirigir a la página de inicio
+                const data = await response.json();
+                alert("Documento Registrado con exito");
+                window.location.reload();
+            } else {
+                // Recargar la página
+                alert("Lo siento no se pudo registrar el documento.");
+                window.location.reload();
+            }
+        } catch (error) {
+            alert("Error en la solicitud");
+            console.error('Error en la solicitud:', error);
+            window.location.reload();
+        }
+    };
+
+    const handleSubmitPrivado = async () => {
+        setEstado(0); // Establecer el estado como privado
+        await handleSubmit(); // Llamar a la función handleSubmit para enviar los datos al servidor
+    };
+
+    const handleSubmitPublico = async () => {
+        setEstado(1); // Establecer el estado como público
+        await handleSubmit(); // Llamar a la función handleSubmit para enviar los datos al servidor
+    };
+
+    const handleSubmit2 = async (event) => {
+        event.preventDefault();
+
+        if (!imagenObject2) {
+            alert('Por favor, seleccione una imagen');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const base64String = reader.result.split(',')[1]; // Get base64 string
+            sendDataToServer2(base64String);
+        };
+        reader.readAsDataURL(imagenObject2);
+    };
+
+    const sendDataToServer2 = async (base64String) => {
+
+        const formData = new FormData();
+        formData.append('base64Image', base64String);
+        console.log("SALIDA DE LA IMAGEN");
+        console.log(base64String);
+
+        try {
+            const response = await fetch('http://localhost:5000/documents/extraer', {
                 method: 'POST',
                 body: formData,
             });
@@ -64,7 +127,8 @@ const CreateDocument = () => {
                 // Redirigir a la página de inicio
 
                 const data = await response.json();
-                alert("Escaneado con exito");
+                setExtraccion(data.message);
+                alert("Se ha extraido la informacion correctamente");
 
             } else {
                 // Recargar la página
@@ -93,13 +157,13 @@ const CreateDocument = () => {
                             <label className='labelCreateDocument'>Titulo</label>
                         </div>
                         <div>
-                            <input type="text" name="title" className='inputsignupCreateDocument'></input>
+                            <input type="text" name="title" className='inputsignupCreateDocument' onChange={(e) => setTitulo(e.target.value)} />
                         </div>
                         <div>
                             <label className='labelCreateDocument'>Descripción</label>
                         </div>
                         <div>
-                            <textarea type="text" name="description" rows="5" cols="80" className='inputsignupCreateDocument'></textarea>
+                            <textarea type="text" name="description" rows="5" cols="80" className='inputsignupCreateDocument' onChange={(e) => setDescripcion(e.target.value)} ></textarea>
                         </div>
                     </div>
                     <div className='contornoCreateDocument-Imagen '>
@@ -120,30 +184,12 @@ const CreateDocument = () => {
                         </div>
                     </div>
                     <div>
-                        <div className='contornoCreateDocument-Traductor'>
-                            <div>
-                                <label className='labelCreateDocument'>Traductor</label>
-                            </div>
-                            <div>
-                                <select id="combo" name="combo" lassName='labelCreateDocument' margin-buttom="10px">
-                                    <option value="Español">Español</option>
-                                    <option value="Ingles">Ingles</option>
-                                    <option value="Frances">Frances</option>
-                                    <option value="Aleman">Aleman</option>
-                                </select>
-                            </div>
-                            <div>
-                                <textarea type="text" name="description" rows="5" cols="80" className='inputsignupCreateDocument'></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
                         <div className='contornoCreateDocument-Boton '>
                             <div className="form-group">
-                                <button type="button" className="butonsignupCreateDocument" onClick={startExtraer}>Guardar(Privado)</button>
+                                <button type="button" className="butonsignupCreateDocument" onClick={handleSubmitPrivado}>Guardar(Privado)</button>
                             </div>
                             <div className="form-group">
-                                <button type="button" className="butonsignupCreateDocument" onClick={startExtraer}>Publicar</button>
+                                <button type="button" className="butonsignupCreateDocument" onClick={handleSubmitPublico}>Publicar</button>
                             </div>
                             <div className="form-group">
                                 <button type="button" className="butonsignupCreateDocument" onClick={startExtraer}>Extraer</button>
@@ -154,7 +200,7 @@ const CreateDocument = () => {
             )}
             {showExtraer && (
                 <div className="containerCreateDocument">
-                    <form className="contornoCreateDocument" onSubmit={handleSubmit}>
+                    <form className="contornoCreateDocument" onSubmit={handleSubmit2}>
                         <h1 className='tituloCreateDocument'>Escaneando información</h1>
                         <div className="container-imgl-CreateDocument">
                             <div className='labelsignup'>
@@ -164,28 +210,24 @@ const CreateDocument = () => {
                                 type="file"
                                 id="imagenextraer"
                                 accept="image/*"
-                                onChange={handleImagenChange}
+                                onChange={handleImagenChangeupdate}
                                 className='labelsignup'
                             />
                             {imagenextrare && (
                                 <img src={imagenextrare} alt="Imagen seleccionada" className="container-imgS" />
                             )}
                         </div>
-                        <div >
-                            <label className="labelCreateDocument">Descripcion: </label>
-                        </div>
                         <div className="form-group">
-                            <button type="button" className="butonsignupCreateDocument" onClick={handleSubmit}>Escanear</button>
+                            <button type="button" className="butonsignupCreateDocument" onClick={handleSubmit2}>Escanear</button>
                         </div>
                         <div className="form-group">
                             <button type="button" className="butonsignupCreateDocument" onClick={stopExtraer}>Cancelar</button>
                         </div>
                     </form>
-                    <div className='contornoCreateDocument'>
+                    <div className='contornoCreateDocument-Descripcion'>
                         <div >
-                            <label className="labelCreateDocument">Descripcion:</label>
+                            <label className="labelCreateDocument">{extraccion}</label>
                         </div>
-
                     </div>
                 </div>
             )}

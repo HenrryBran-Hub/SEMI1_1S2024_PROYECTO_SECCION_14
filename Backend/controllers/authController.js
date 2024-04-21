@@ -9,6 +9,7 @@ const axios = require('axios');
 const { Base64 } = require('js-base64');
 const s3 = require("../database/s3config");
 const { verify } = require('jsonwebtoken');
+const { Console } = require('console');
 
 
 exports.signup = async (req, res) => {
@@ -40,24 +41,6 @@ exports.signup = async (req, res) => {
             res.status(500).json({ message: "Error interno del servido en el registro" });
         }
 
-        // Registrar el nuevo album
-        const albumId = await userModel.createAlbum("Perfil", userId.id, '1');
-        if (albumId.status === 200) {
-            console.log('estado del album en el registro:', albumId.message);
-        } else {
-            console.error('Hubo un problema al guardar la foto en el registro:', albumId.message);
-            res.status(500).json({ message: "Error interno del servidor en el registro" });
-        }
-
-        // Registrar la foto en el album
-        const fotoId = await userModel.savePhoto(fotoPerfilUrl.Key, fotoPerfilUrl.Location, albumId.id, '1');
-        if (fotoId.status === 200) {
-            console.log('estado de la foto en el registro:', fotoId.message);
-        } else {
-            console.error('Hubo un problema al guardar la foto en el registro:', fotoId.message);
-            res.status(500).json({ message: "Error interno del servidor en el registro" });
-        }
-
         return res.status(200).json({ message: 'Exito al ingresar los datos usuario registrado' });
 
     } catch (error) {
@@ -83,7 +66,7 @@ exports.login = async (req, res) => {
             const token = jwt.sign(
                 {
                     exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30,
-                    id: user.id
+                    id: user.idusuario
                 },
                 claveSecreta);
 
@@ -118,13 +101,18 @@ exports.loginFoto = async (req, res) => {
         for (const user of users) {
 
             console.log("MOSTRAMOS LOS  USUARIOS");
-            console.log(user.foto_perfil);
-            const salida = await getBase64(user.foto_perfil);
-            const similitud = await compararImagenes(salida, imageBase64);
-            console.log('Porcentaje de similitud:', similitud);
+            console.log(user.fotoperfil);
+            const salida = await getBase64(user.fotoperfil);
+            const response = await axios.post('https://3v0stofaj0.execute-api.us-east-1.amazonaws.com/ProyectoSemiG14API/comparar', {
+                imagen1: imageBase64,
+                imagen2: salida
+            }); 
+            const responseBody = JSON.parse(response.data.body);
+            const similitud = responseBody.porcentaje_similitud;
+            console.log('Porcentaje de similitud afuera:', similitud);
             if (similitud >= 90) {
                 authenticated = true;
-                userId = user.id;
+                userId = user.idusuario;
                 break;
             }
         }
@@ -154,31 +142,6 @@ async function getBase64(url) {
     return base64;
 };
 
-// Función para comparar imágenes
-async function compararImagenes(imagen1Base64, imagen2Base64) {
-
-    const params = {
-        SimilarityThreshold: 90,
-        SourceImage: {
-            Bytes: Buffer.from(imagen1Base64, 'base64')
-        },
-        TargetImage: {
-            Bytes: Buffer.from(imagen2Base64, 'base64')
-        }
-    };
-
-    try {
-        const resultado = await rekognition.compareFaces(params).promise();
-        if (resultado.FaceMatches.length > 0) {
-            return resultado.FaceMatches[0].Similarity;
-        } else {
-            return 0;
-        }
-    } catch (error) {
-        console.error('Error al comparar imágenes:', error);
-        throw error;
-    }
-}
 
 //Funcion para obtener los datos del perfil
 exports.getPerfilDescription = async (req, res) => {

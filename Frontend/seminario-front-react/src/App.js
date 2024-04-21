@@ -16,9 +16,8 @@ import ChatbotPopup from './components/Chatbot';
 
 function App() {
   const [userData, setUserData] = useState(null);
-  const [albumData, setAlbumData] = useState(null);
-  const [albumDataFoto, setAlbumDataFoto] = useState(null);
-  const [descripcionUser, setDescripcionUser] = useState(null);
+  //const [albumData, setAlbumData] = useState(null);
+  //const [albumDataFoto, setAlbumDataFoto] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -38,7 +37,8 @@ function App() {
       }
     };
 
-    const fetchAlbumData = async () => {
+    /*
+    const fetchArticulosData = async () => {
       try {
         const token = localStorage.getItem('token');
         if (token) {
@@ -55,7 +55,7 @@ function App() {
       }
     };
 
-    const fetchAlbumFoto = async () => {
+    const fetchPublicadosData = async () => {
       try {
         const token = localStorage.getItem('token');
         if (token) {
@@ -71,29 +71,11 @@ function App() {
         console.error('Error al obtener los datos del usuario:', error);
       }
     };
-
-    const fetchDescripcionUser = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (token) {
-          const response = await fetch(`http://localhost:5000/signup/descriptionuser?id=${token}`);
-          if (response.ok) {
-            const data = await response.json();
-            setDescripcionUser(data);
-          } else {
-            throw new Error('Error al obtener los datos del usuario');
-          }
-        }
-      } catch (error) {
-        console.error('Error al obtener los datos del usuario:', error);
-      }
-    };
-
+    */
 
     fetchUserData();
-    fetchAlbumData();
-    fetchAlbumFoto();
-    fetchDescripcionUser();
+    //fetchArticulosData();
+    //fetchPublicadosData();
   }, []);
 
   return (
@@ -104,11 +86,11 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           {/* Rutas protegidas */}
-          <Route path='/userpage' element={<PrivateRoute><UserPage userData={userData} userDescripcion={descripcionUser} /></PrivateRoute>} />
+          <Route path='/userpage' element={<PrivateRoute><UserPage userData={userData} /></PrivateRoute>} />
           <Route path='/editperfil' element={<PrivateRoute><EditPerfil userData={userData} /></PrivateRoute>} />
-          <Route path='/createdocument' element={<PrivateRoute><CreateDocument userData={userData} albumData={albumData} /></PrivateRoute>} />
-          <Route path='/editdocument' element={<PrivateRoute><EditDocument userFoto={albumDataFoto} /></PrivateRoute>} />
-          <Route path='/deldocument' element={<PrivateRoute><DelDocument userData={userData} albumData={albumData} /></PrivateRoute>} />
+          <Route path='/createdocument' element={<PrivateRoute><CreateDocument /></PrivateRoute>} />
+          <Route path='/editdocument' element={<PrivateRoute><EditDocument /></PrivateRoute>} />
+          <Route path='/deldocument' element={<PrivateRoute><DelDocument  /></PrivateRoute>} />
         </Routes>
       </BrowserRouter>
       <ChatbotPopup />

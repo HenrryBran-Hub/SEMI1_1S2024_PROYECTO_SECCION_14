@@ -11,9 +11,9 @@ const EditPerfil = ({ userData }) => {
     const [imagenObject, setImagenObject] = useState(null);
 
     // Verificar si userData está definido y obtener los valores correspondientes
-    const usuarioperfil = userData ? userData.nombre_usuario : '';
-    const nombreCompletoperfil = userData ? userData.nombre_completo : '';
-    const imagenperfil = userData ? userData.foto_perfil : '';
+    const usuarioperfil = userData ? userData.nombreusuario : '';
+    const nombreCompletoperfil = userData ? userData.nombrecompleto : '';
+    const imagenperfil = userData ? userData.fotoperfil : '';
 
     const handleImagenChange = (event) => {
         const imagenSeleccionada = event.target.files[0];

@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="369E0E11-08FC-24CD-6E14-16CD3979E0ED" name="Usuario">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 19:40:21 UTC</createdTime>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idUsuario" id="7FDAB7F5-AAE3-4AB9-5B6C-ED56ECB52631">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 19:42:25 UTC</createdTime>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombreUsuario" id="B9A91197-CE67-5C22-F128-C2A0F8963CE1">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 19:40:30 UTC</createdTime>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombreCompleto" id="9FB33943-1CE8-4D6E-F2E3-B278FAE1871C">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 19:41:00 UTC</createdTime>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="contrasena" id="BE142B4E-526E-DCA2-14F9-572E902B7DF0">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 19:41:27 UTC</createdTime>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fotoPerfil" id="314428AE-C5E9-62DE-9AD3-FFD90440175C">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 19:41:56 UTC</createdTime>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="963B51D4-8B8C-EF74-B525-BC4800E3CB73" name="Usuario PK">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-12 19:42:44 UTC</createdTime>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<engineerTo>
+<item key="0B9FC930-CB8D-CA15-E629-2CA529ACD0FD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7FDAB7F5-AAE3-4AB9-5B6C-ED56ECB52631</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

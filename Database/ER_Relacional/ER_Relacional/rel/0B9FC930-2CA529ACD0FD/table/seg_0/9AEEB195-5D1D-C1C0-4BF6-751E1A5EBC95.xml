@@ -1,0 +1,147 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9AEEB195-5D1D-C1C0-4BF6-751E1A5EBC95" name="Documento">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>6DBE1E95-084E-8F18-7DD7-F5AF70D64673</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdDocumento" id="DAAAD141-E7D9-72C1-F632-CB7ADD2DE8CC">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>425C9B77-1451-6B77-086E-D5A8B00816B8</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titulo" id="F1A4BECF-D533-DD37-28B5-A67103E2C875">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>D0B2D84A-3099-3B08-381A-EE08A97951D1</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="4D35C774-A3FE-C84B-08DF-F78CB34741FB">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>276241D4-5A38-E685-DA52-E4D0EA1979CA</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5000</dataTypeSize>
+<ownDataTypeParameters>5000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="urlFoto" id="F0E4D1E3-4200-6970-577A-FA52C0EFAF7F">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>E99BE4F6-86E8-FDE4-774B-D309405D6E51</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="etiqueta1" id="7F3BA80E-BE20-0E79-D967-83AA0D35B0B7">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>ACAC3F12-9A39-4F0C-E8CB-19D8489DDA63</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="etiqueta2" id="E023D232-1309-D3E9-DA9A-68B9C3545866">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>4CD8A24C-61F9-9EBF-8A17-121427184EF0</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="etiqueta3" id="1B104004-4684-27C8-D2FF-3452AF026373">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>D3F6D578-3AE6-BCB5-5B60-463DA4E61B0A</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="C2798E98-FD1D-6388-5F71-831CC3F69D62">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>5DBFF5B6-AC2A-2330-EB92-856C6E9A4623</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario_idUsuario" id="EE85CE13-567A-F457-410C-BC6ED92EDA37">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>8063BCDD-DE03-127E-AFBA-39A386AD6635</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AF82D58B-F14B-59D4-D821-F4D645D4F03B" referredColumn="56B619A3-C960-3743-B5EC-028DB8845CEC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7FAC3EC6-B2A9-F595-3045-F3FBC79909BB" name="Documento_PK">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>C44CA702-9E80-93F7-EB07-5D84322BD908</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DAAAD141-E7D9-72C1-F632-CB7ADD2DE8CC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8ACEA619-D7DA-F166-DA43-03F276127727" name="Documento_Usuario_FK">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>CD2EA665-3023-C328-1BEC-A69DF198B748</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE85CE13-567A-F457-410C-BC6ED92EDA37"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

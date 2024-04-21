@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B82E3533-987C-4155-6BB5-7809922AAB6D" name="Comentario">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>D87234B3-22F9-FDA3-8FAE-582E662FF197</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idComentario" id="AA8F9DE1-F6B5-89B9-ED46-BCC09AA7119D">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>A2B32DEC-4A61-1FAE-53C0-37F3AA8330FB</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="FA9C5002-7DCA-A969-8052-280B84E5BD12">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>FD128E18-6F58-E554-F6F3-BCA10DF3D998</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="calificacion" id="E2D17AB8-556D-F87B-501A-131FA823490C">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>B7ADB0CF-08E9-20C0-7B29-5E5B3C74F3A2</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Documento_IdDocumento" id="85FCDDA6-B709-FD9E-7E11-06DBF54BB6CB">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>FCAD057E-7401-5A2B-4274-AF726876CA8F</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DD54CFEC-E8C9-4516-16A9-4ABD7D3B2AB6" referredColumn="DAAAD141-E7D9-72C1-F632-CB7ADD2DE8CC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F2B97303-5CF6-CE04-B45A-39028EED86AE" name="Comentario_PK">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>6260425D-6034-83E2-C1BB-BBF66CBBEDFD</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA8F9DE1-F6B5-89B9-ED46-BCC09AA7119D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AE1AA6C8-3428-4D4A-BF70-44A7B7F98B60" name="Comentario_Documento_FK">
+<createdBy>Henrr</createdBy>
+<createdTime>2024-04-18 04:27:25 UTC</createdTime>
+<generatorID>81B52192-9183-16D3-4D5B-366493322017</generatorID>
+<ownerDesignName>ER_Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85FCDDA6-B709-FD9E-7E11-06DBF54BB6CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

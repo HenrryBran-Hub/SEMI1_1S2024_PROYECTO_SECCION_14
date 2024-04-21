@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ER_Relacional" id="FB07A0B1-D75B-24F0-3986-9C84DAAD5386" version="3.5">
-<createdBy>Henrr</createdBy>
-<createdTime>2024-04-12 19:39:46 UTC</createdTime>
-<ownerDesignName>ER_Logico</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>FB07A0B1-D75B-24F0-3986-9C84DAAD5386</designId>
-</OSDM_Design>

@@ -9,14 +9,14 @@ const UserPage = ({ userData }) => {
     const imagen = userData ? userData.fotoperfil : '';
     const [documents, setDocuments] = useState(null);
 
-    useEffect(() => {
+    const Actualizar = ()  => {
         fetch(`http://localhost:5000/documents/adocuments`)
             .then(response => response.json())
             .then(data => {
               setDocuments(data)
             }).catch(err => { console.log(err) })
     
-      }, []);
+      };
 
     return (
         <div>
@@ -43,7 +43,10 @@ const UserPage = ({ userData }) => {
                 <div className="containerUserPage">
                     <div >
                         <h1 className='tituloUserPage'>Articulos Publicados por los usuarios</h1>
-                        <div >
+                        <button onClick={Actualizar}>ACTUALIZAR</button>
+                        {
+                            documents!== null && (
+                                <div  >
                             {
                                 <ul className='ul-vertical'>
                                 {documents.map((doc) => (
@@ -52,6 +55,8 @@ const UserPage = ({ userData }) => {
                                 </ul>
                             }
                         </div>
+                            )
+                        }
                     </div>
                 </div>
             </div>

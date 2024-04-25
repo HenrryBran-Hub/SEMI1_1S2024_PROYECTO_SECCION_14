@@ -19,68 +19,98 @@
 
 ---
 
+## Objetivos
+
+* Describir claramente el funcionamiento de un producto o sistema.
+* Proporcionar instrucciones detalladas paso a paso para la instalación y configuración.
+* Ofrecer soluciones a problemas comunes y consejos para el mantenimiento adecuado.
+* Establecer estándares y procedimientos para el uso seguro y eficiente del producto o sistema.
+
+## Arquitectura
+
+  ![1](./Img/Tecnico/155.png)
+
+## Presupuesto
+
+Actualmente se espera que el servicio llegue a un maximo de $1.00
+
+![2](./Img/Tecnico/255.png)
+
+![3](./Img/Tecnico/355.png)
+
+## Servicios
+
 1. ### :fire: instacias creadas :fire:
 
-   ![1](./Img/instancia_ec2.png)
+   ![1](./Img/Tecnico/1.png)
 
 ---
 
 2. ### permisos de grupo de seguridad (entrada) :eyes:
 
-     ![2](./Img/seguridad_entrada.png)
+     ![2](./Img/Tecnico/2.png)
 ---
 
 3. ### permisos de grupo de seguridad (salida) :eyes:
 
-     ![3](./Img/seguridad_salida.png)
+     ![3](./Img/Tecnico/3.png)
 ---
 
-4. ### detalles de base de datos utilizada con enlaces y puertos
+4. ### detalles de base de datos utilizada
 
-     ![4](./Img/db.png)
+     ![4](./Img/Tecnico/4.png)
 ---
 
+5. ### enlace y puerto de base de datos
+
+     ![5](./Img/Tecnico/5.png)
 ---
 
-5. ### usuarios creados 
+6. ### usuarios creados 
 
-     ![usuario lex](./Img/usuario_lex.png)
-     ![usuario rds](./Img/usuario_rds.png)
-     ![usuario rekognition](./Img/usuario_rekognition.png)
-     ![usuario s3 pagina](./Img/usuario_s3_admin.png)
-     ![usuario s3 imagen](./Img/usuario_s3_img.png)
-     ![usuario translate](./Img/usuario_translate.png)
+     ![6](./Img/Tecnico/6.png)
 ---
 
-6. ### grupo de seguridad utilizado :lock:
+7. ### balanceador de carga creado
 
-     ![9](./Img/9.png)
+     ![7](./Img/Tecnico/7.png)
+---
+
+8. ### detalles del balanceador de carga
+
+     ![8](./Img/Tecnico/8.png)
+---
+
+9. ### grupo de seguridad utilizado :lock:
+
+     ![9](./Img/Tecnico/9.png)
 ---
 
 10. ### bucket de carga de imagenes
 
-     ![10](./Img/bucket_imagenes.png)
+     ![10](./Img/Tecnico/10.png)
 ---
 
 11. ### detalles del bucket
 
-     ![11](./Img/11.png)
+     ![11](./Img/Tecnico/11.png)
 ---
 
 12. ### politica creada para sitio web :lock:
 
-     ![12](./Img/12.png)
+     ![12](./Img/Tecnico/12.png)
 ---
 
 13. ### detalles del sitio web
 
-     ![13](./Img/13.png)
+     ![13](./Img/Tecnico/13.png)
 ---
 
 14. ### sitio web estatico
 
-     ![14](./Img/14.png)
+     ![14](./Img/Tecnico/14.png)
 ---
+
 
 15. ### entidad relacion logico 
 

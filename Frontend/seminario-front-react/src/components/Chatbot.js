@@ -67,7 +67,7 @@ const ChatbotPopup = () => {
                     <div className="popup-content">
                         <div style={{ height: "500px", width: "400px" }}>
                             <div id='michat' style={{ height: "460px", width: "400px", overflowY: "auto" }}>
-                                <div className='d-flex'><img style={{ height: "20px" }} src={imagen} alt='bot' /> <p className='text-start'> Bienvenido al chatbot de faunadex </p></div>
+                                <div className='d-flex'><img style={{ height: "20px" }} src={imagen} alt='bot' /> <p className='text-start'> Bienvenido al chatbot de WIKIPAPER </p></div>
                             </div>
                             <div className='stretch-input'>
                                 <input onKeyPress={handleKeyPress} value={valInput} type="text" className="myInput" onChange={changeMessage} /><button className='btncolor' onClick={sendMessage}><i className="bi bi-send"></i></button>

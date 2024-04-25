@@ -33,10 +33,10 @@ const botAws = async (mensajeUsuario, token) => {
     const id = token.toString();
     try {
         const params = {
-            botAliasId: 'ZOVG3TC6ST', // Reemplaza 'ID_DEL_ALIAS' con el ID del alias
-            botId: 'ZGMY9G2V5M', // Reemplaza 'ID_DEL_BOT' con el ID del bot
+            botAliasId: 'VTILI45TP5', // Reemplaza 'ID_DEL_ALIAS' con el ID del alias
+            botId: 'EB5BR2ISLG', // Reemplaza 'ID_DEL_BOT' con el ID del bot
             localeId: 'es_419', // Reemplaza 'es_US' con el código de idioma correspondiente
-            sessionId: id + "semi1p2", // Proporciona un ID de sesión único
+            sessionId: id + "semi1pry", // Proporciona un ID de sesión único
             text: mensajeUsuario
         };
 

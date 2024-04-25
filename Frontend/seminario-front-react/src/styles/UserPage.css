@@ -85,3 +85,30 @@
   th, td {
     padding: 5px; /* Espacio interno en celdas */
   }
+
+  
+.ul-vertical {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    background-color: #bbb;
+    display: inline-block;
+  }
+  .ul-vertical li {
+    background-color: #777;
+    width: 1500px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #666;
+  }
+
+  .ul-vertical li:hover {
+    color: #e58908;
+  }
+
+  .ul-vertical li+li {
+    margin-top: 8px;
+  }
+  
+  

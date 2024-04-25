@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './MyNavBar2';
 import '../styles/UserPage.css';
 
@@ -7,6 +7,16 @@ const UserPage = ({ userData }) => {
     const usuario = userData ? userData.nombreusuario : '';
     const nombreCompleto = userData ? userData.nombrecompleto : '';
     const imagen = userData ? userData.fotoperfil : '';
+    const [documents, setDocuments] = useState(null);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/documents/adocuments`)
+            .then(response => response.json())
+            .then(data => {
+              setDocuments(data)
+            }).catch(err => { console.log(err) })
+    
+      }, []);
 
     return (
         <div>
@@ -34,10 +44,13 @@ const UserPage = ({ userData }) => {
                     <div >
                         <h1 className='tituloUserPage'>Articulos Publicados por los usuarios</h1>
                         <div >
-
-                        </div>
-                        <div >
-
+                            {
+                                <ul className='ul-vertical'>
+                                {documents.map((doc) => (
+                                    <li>{doc.titulo}</li>
+                                ))}
+                                </ul>
+                            }
                         </div>
                     </div>
                 </div>

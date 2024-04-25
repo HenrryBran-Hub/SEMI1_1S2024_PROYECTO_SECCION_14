@@ -21,6 +21,7 @@ router.post('/savedocument', upload, documentsController.savedocuments);
 //router.post('/editdocument', upload, documentsController.editdocuments);
 //router.post('/deldocument', upload2.none(), documentsController.deldocuments);
 router.post('/extraer', upload2.none(), documentsController.extraer);
+router.get('/adocuments', upload2.none(), documentsController.getDocumentosActivos);
 
 
 module.exports = router;

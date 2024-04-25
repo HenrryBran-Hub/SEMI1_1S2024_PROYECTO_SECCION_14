@@ -74,6 +74,19 @@ exports.extraer = async (req, res) => {
     }
 };
 
+exports.getDocumentosActivos = async(req, res) =>{
+    try {
+        let documentos = await documentModel.getDocumentsActive(0);
+        if (documentos){
+            res.status(200).json(documentos)
+        }else res.status(500).json({status: 500, message: "error en la petición"})
+        
+    } catch (error) {
+        console.error("error get documentos activos");
+        res.status(500).json({status:500, message: error})
+    }
+}
+
 /*
 exports.editdocuments = async (req, res) => {
 

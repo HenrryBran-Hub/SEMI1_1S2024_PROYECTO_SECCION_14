@@ -16,6 +16,18 @@ exports.createDocument = async (titulo, descripcion,  urlfoto, fecha, etiqueta1,
     }
 };
 
+exports.getDocumentsActive = async (estado)=>{
+    try {
+        const [results, fields] = await db.execute('select id, titulo, descripcion, urlfoto, fecha, etiqueta1, etiqueta2, u.nombrecompleto from documento d ' 
+        +'join usuario u ON d.idusuario=u.idusuario '
+        +'where estado=?', [estado]);
+        return results;
+        
+    } catch (error) {
+        throw error
+    }
+}
+
 /*
 // Función para verificar si un nombre de usuario ya está registrado
 exports.checkUsernameExists = async (nombre_usuario) => {
